@@ -1,0 +1,29 @@
+<?php
+$page_title = $page_title ?? 'Dashboard';
+$active     = $active ?? '';
+$u          = current_user();
+?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><?= e($page_title) ?> — KYN CMS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="admin">
+<div class="admin-shell">
+<?php require __DIR__ . '/sidebar.php'; ?>
+<main class="admin-main">
+  <header class="admin-topbar">
+    <h1><?= e($page_title) ?></h1>
+    <div class="admin-user">
+      <span><?= e($u['name']) ?></span>
+      <span class="badge"><?= e($u['role']) ?></span>
+    </div>
+  </header>
+  <div class="admin-content"></div>
